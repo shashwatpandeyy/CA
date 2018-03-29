@@ -76,7 +76,7 @@ void * threadCall(void* void A)
         threadVar++;                    
         Sleep(100);
         printf("\n ",threadVar);
-        //cout<<"\n "<<pidArr[threadVar].pid;
+        cout<<"\n "<<pidArr[threadVar].pid;
         pthread_mutex_unlock(&mutex);     
     }
     Sleep(10);
