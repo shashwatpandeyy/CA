@@ -88,7 +88,7 @@ int main()
     int i =0;
 
     pthread_t thread[100];
-    printf("\n 100 threads created. Every thread will print the value of variable 'threadVar' and increment it by 1 with a delay of 100ms each process execution");
+    printf("\n 100 threads created.Every thread will print the value of variable 'threadVar' and increment it by 1 with a delay of 100ms each process execute");
     Sleep(3000);    
     for(i = 0; i < 100; i++)
     {
