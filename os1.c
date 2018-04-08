@@ -61,7 +61,7 @@ void release_pid(int pid)
 }
 
 
-void * threadCall(void* void A)
+void *threadCall()
 {
     int ret = allocate_pid();  
     while (threadVar < 100)
@@ -74,12 +74,12 @@ void * threadCall(void* void A)
         }
 
         threadVar++;                    
-        Sleep(100);
-        printf("\n ",threadVar);
-        cout<<"\n "<<pidArr[threadVar].pid;
+        sleep(0.001);
+        printf("\n%d",threadVar);
+        printf("%d\n",pidArr[threadVar].pid);
         pthread_mutex_unlock(&mutex);     
     }
-    Sleep(10);
+    sleep(0.001);
     release_pid(ret);     
 }
 
@@ -88,13 +88,13 @@ int main()
     int i =0;
 
     pthread_t thread[100];
-    printf("\n 100 threads created.Every thread will print the value of variable 'threadVar' and increment it by 1 with a delay of 100ms each process execute");
-    Sleep(3000);    
+    printf("\n 100 threads created.Every thread will print the value of variable 'threadVar' and increment it by 1 with a delay of 0.001s each process execute");
+    sleep(5);    
     for(i = 0; i < 100; i++)
     {
         pthread_mutex_init(&mutex, NULL);
         pthread_create(&thread[i], NULL, threadCall, NULL);
-        threadCall(NULL);
+        threadCall();
     }
 
     for(i = 0; i < 100; i++)
